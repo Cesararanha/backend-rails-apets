@@ -1,0 +1,19 @@
+<h1>Dashboard</h1>
+<p>Bem-vindo ao seu dashboard, <%= @user.name %>!</p>
+<p>E-mail: <%= @user.email %></p>
+<p>Data de Nascimento: <%= @user.date_of_birth %></p>
+<p>Celular: <%= @user.phone %></p>
+<%= link_to "Cadastrar Animal", new_animal_path %>
+<br>
+<% if @animals.present? %>
+  <% @animals.each do |animal| %>
+    <div>
+      <h3><%= animal.name %></h3>
+      <p>Raça: <%= animal.breed %></p>
+      <p>Idade: <%= animal.age %> anos</p>
+      <p>Descrição: <%= animal.description %></p>
+    </div>
+  <% end %>
+<% else %>
+  <p>Você não possui animais cadastrados.</p>
+<% end %>

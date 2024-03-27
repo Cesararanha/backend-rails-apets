@@ -1,0 +1,30 @@
+<h1>Editar Animal</h1>
+
+<%= form_with(model: @animal, url: animal_path(@animal), method: :patch) do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :breed %>
+    <%= form.text_field :breed %>
+  </div>
+
+  <div>
+    <%= form.label :age %>
+    <%= form.number_field :age %>
+  </div>
+
+  <div>
+    <%= form.label :additional_info %>
+    <%= form.text_area :additional_info %>
+  </div>
+
+  <div>
+    <%= form.label :foto %>
+    <%= form.file_field :foto %>
+  </div>
+
+  <%= form.submit "Salvar Alterações" %>
+<% end %>
