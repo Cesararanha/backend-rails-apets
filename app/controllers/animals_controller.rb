@@ -2,6 +2,10 @@ class AnimalsController < ApplicationController
   def new
     @animal = Animal.new
   end
+  
+  def show
+    @animal = Animal.find(params[:id])
+  end
 
   def create
     @animal = Animal.new(animal_params)
@@ -13,11 +17,11 @@ class AnimalsController < ApplicationController
   end
 
   def edit
-    @animal = Animal.find(params(:id))
+    @animal = Animal.find(params[:id])
   end
 
   def update
-    @animal = Animal.find(params(:id))
+    @animal = Animal.find(params[:id])
     if @animal.update(animal_params)
       redirect_to dashboard_path, notice: "Animal atualizado com seucesso."
     else
@@ -26,7 +30,7 @@ class AnimalsController < ApplicationController
   end
 
   def destroy
-    @animal = Animal.find(params(:id))
+    @animal = Animal.find(params[:id])
     @animal.destroy
     redirect_to dashboard_path, notice: "Animal removido com sucesso."
   end

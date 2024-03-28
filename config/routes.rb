@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/sign_up', to: 'users#new'
   resources :users, only: [:new, :create]
-  resources :animals, only: [:new, :create, :edit, :update, :destroy]
+  resources :animals
   get '/dashboard', to: 'dashboard#index'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

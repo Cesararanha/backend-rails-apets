@@ -3,6 +3,7 @@
 <p>E-mail: <%= @user.email %></p>
 <p>Data de Nascimento: <%= @user.date_of_birth %></p>
 <p>Celular: <%= @user.phone %></p>
+<%= button_to 'Logout', logout_path, method: :delete %>
 <%= link_to "Cadastrar Animal", new_animal_path %>
 <br>
 <% if @animals.present? %>
@@ -11,7 +12,10 @@
       <h3><%= animal.name %></h3>
       <p>Raça: <%= animal.breed %></p>
       <p>Idade: <%= animal.age %> anos</p>
-      <p>Descrição: <%= animal.description %></p>
+      <p>Descrição: <%= animal.additional_info %></p>
+      <p><%= link_to "Ver", animal_path(animal) %></p>
+      <p><%= link_to "Editar", edit_animal_path(animal) %></p>
+      <p><%= button_to 'Remover', animal_path(animal), method: :delete, data: { confirm: 'Are you sure?' } %></p>
     </div>
   <% end %>
 <% else %>
