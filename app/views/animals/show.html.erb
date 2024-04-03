@@ -1,8 +1,10 @@
 <h1><%= @animal.name %></h1>
 
 <p>
-  <strong>Description:</strong>
-  <%= @animal.additional_info %>
+  <% if @animal.photo.attached? %>
+    <strong>Photo:</strong>
+    <%= image_tag url_for(@animal.photo) %>
+  <% end %>
 </p>
 
 <p>
